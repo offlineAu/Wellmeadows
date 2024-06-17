@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisition Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='requisition-form.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Wellmeadows Hospital</h1>
+            <h2>Central Store Requisition Form</h2>
+        </div>
+        <div class="requisition-number-container">
+            <div class="requisition-number">
+                Requisition Number: 034567712
+            </div>
+        </div>
+        <form onsubmit="event.preventDefault(); fetchDrugDetails();">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="ward-number">Ward Number:</label>
+                    <select id="ward-number" name="ward-number">
+                        <option value="Ward 1">Ward 1</option>
+                        <option value="Ward 2">Ward 2</option>
+                        <option value="Ward 3">Ward 3</option>
+                        <option value="Ward 4">Ward 4</option>
+                        <option value="Ward 5">Ward 5</option>
+                        <option value="Ward 6">Ward 6</option>
+                        <option value="Ward 7">Ward 7</option>
+                        <option value="Ward 8">Ward 8</option>
+                        <option value="Ward 9">Ward 9</option>
+                        <option value="Ward 10">Ward 10</option>
+                        <option value="Ward 11">Ward 11</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ward-name">Ward Name:</label>
+                    <input type="text" id="ward-name" name="ward-name">
+                </div>
+                <div class="form-group">
+                    <label for="requisitioned-by">Requisitioned By:</label>
+                    <input type="text" id="requisitioned-by" name="requisitioned-by">
+                </div>
+                <div class="form-group">
+                    <label for="requisitioned-date">Requisitioned Date:</label>
+                    <input type="date" id="requisitioned-date" name="requisitioned-date">
+                </div>
+            </div>
+            <table class="form-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Dosage (Drugs Only)</th>
+                        <th>Method of Admin</th>
+                        <th>Cost per Unit</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select id="drug-name" name="drug-name">
+                                <!-- Add more options as needed -->
+                                <option value="ibuprofen">Ibuprofen</option>
+                                <option value="aspirin">Aspirin</option>
+                                <option value="acetaminophen">Acetaminophen</option>
+                                <option value="amoxicillin">Amoxicillin</option>
+                                <option value="atorvastatin">Atorvastatin</option>
+                                <option value="omeprazole">Omeprazole</option>
+                                <option value="metformin">Metformin</option>
+                                <option value="losartan">Losartan</option>
+                                <option value="lisinopril">Lisinopril</option>
+                                <option value="levothyroxine">Levothyroxine</option>
+                                <option value="simvastatin">Simvastatin</option>
+                                <option value="clopidogrel">Clopidogrel</option>
+                                <option value="montelukast">Montelukast</option>
+                                <option value="albuterol">Albuterol</option>
+                                <option value="gabapentin">Gabapentin</option>
+                                <option value="hydrochlorothiazide">Hydrochlorothiazide</option>
+                                <option value="hydrocodone">Hydrocodone</option>
+                                <option value="sertraline">Sertraline</option>
+                                <option value="tramadol">Tramadol</option>
+                                <option value="zolpidem">Zolpidem</option>
+                            </select>
+                        </td>
+                        <td><span id="description"></span></td>
+                        <td><span id="dosage"></span></td>
+                        <td><span id="method-of-admin"></span></td>
+                        <td><span id="cost-per-unit"></span></td>
+                        <td><span id="quantity"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

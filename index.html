@@ -1,0 +1,72 @@
+<!--
+* This is done in wellmeadows Terminal *
+
+Start the Virtual Environment: .\venv\Scripts\Activate
+Start the Application: python app.py
+Default localhost: http://localhost:5000/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Forms</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+  <div class="max-w-md mx-auto bg-white dark:bg-zinc-200 rounded-lg shadow-lg p-6">
+    <h2 class="text-xl font-semibold text-zinc-800 dark:text-zinc-900">Request a Quote</h2>
+    <p class="text-zinc-700 dark:text-zinc-800">
+      Fill out the form or call <a href="tel:1234567891" class="text-blue-500">123 456 7891</a>
+      to start protecting your business today!
+    </p>
+    <div class="my-4 flex items-center">
+      <div class="flex-1 h-2 bg-blue-500 rounded-full"></div>
+    </div>
+    <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-900 mt-4">Select Service(s)</h3>
+    <div class="grid grid-cols-3 gap-4 mt-4">
+      <div class="border-2 border-zinc-400 dark:border-zinc-500 rounded-lg p-4 text-center service" 
+      data-popup-content="http://localhost:5000/staff-form">
+        <img src="https://placehold.co/100x100" alt="Staff Form" class="mx-auto mb-2">
+        <p class="text-zinc-600 dark:text-zinc-700">Staff Form</p>
+      </div>
+      <div class="border-2 border-zinc-400 dark:border-zinc-500 rounded-lg p-4 text-center service" 
+        data-popup-content="{{ url_for('patient_med_form') }}">
+        <img src="https://placehold.co/100x100" alt="Patient Medication Form" class="mx-auto mb-2">
+        <p class="text-zinc-600 dark:text-zinc-700">Patient Medication Form</p>
+      </div>
+      <div class="border-2 border-zinc-400 dark:border-zinc-500 rounded-lg p-4 text-center service" 
+      data-popup-content="{{ url_for('requisition_form') }}">
+        <img src="https://placehold.co/100x100" alt="Requisition Form" class="mx-auto mb-2">
+        <p class="text-zinc-600 dark:text-zinc-700">Requisition Form</p>
+      </div>
+      <div class="border-2 border-zinc-400 dark:border-zinc-500 rounded-lg p-4 text-center service" 
+        data-popup-content="{{ url_for('patient_registration') }}">
+        <img src="https://placehold.co/100x100" alt="Patient Registration" class="mx-auto mb-2">
+        <p class="text-zinc-600 dark:text-zinc-700">Patient Registration</p>
+      </div>
+      <div class="border-2 border-zinc-400 dark:border-zinc-500 rounded-lg p-4 text-center service" 
+        data-popup-content="{{ url_for('patient_allocation') }}">
+        <img src="https://placehold.co/100x100" alt="Patient Allocation" class="mx-auto mb-2">
+        <p class="text-zinc-600 dark:text-zinc-700">Patient Allocation</p>
+      </div>
+      <div class="border-2 border-zinc-400 dark:border-zinc-500 rounded-lg p-4 text-center service" 
+        data-popup-content="{{ url_for('ward_staff') }}">
+        <img src="https://placehold.co/100x100" alt="Ward Staff Allocation" class="mx-auto mb-2">
+        <p class="text-zinc-600 dark:text-zinc-700">Ward Staff Allocation</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup" class="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white dark:bg-zinc-200 rounded-lg p-6 max-h-full overflow-y-auto">
+      <button id="close-popup" class="mb-4 text-blue-500">Close</button>
+      <div id="popup-content" class="popup-content text-zinc-800 dark:text-zinc-900">Popup content goes here</div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
